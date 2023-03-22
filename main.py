@@ -10,25 +10,23 @@ def Main():
     server = None
     while(True):
         try:
-            print("-------------------\n"+
+            print("\n-------------------\n"+
                 "1: start server\n"+
-                "2: send command\n"+
                 "3: stop server\n"+
                 "4: fsffslkgj;lgh\n"+
                 "-------------------\n")
-            str = input('please enter a number:')
+            str = input('please enter a number:\n')
             if(str == '1'):
-                server = Server(ips[0],10000)
                 print('local ip: {0}:{1},waiting for a client connection...'.format(ips[0],10000))
+                server = Server(ips[0],10000)
                 Sthread = Thread(target = server.Start)
                 Sthread.start()
-            elif(str == '2'):
-                msg = input('please enter cmd:')
-                server.SendCommand(msg)
-                print("server sent: {0}\n".format(msg))
+            # elif(str == '2'):
+            #     msg = input('please enter cmd:')
+            #     server.SendCommand(msg)
+            #     print("server sent: {0}\n".format(msg))
             elif(str == '3'):
-                server.Stop()
-                Sthread = None
+                server.Stop()  
                 print("server closed\n")
             elif(str == '4'):       
                 print("fsffslkgj;lgh\n")
